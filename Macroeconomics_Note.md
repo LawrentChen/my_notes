@@ -121,9 +121,9 @@ $$
 
 #### 偏好
 
-索罗模型没有管消费者偏好，只是假设收入 $\overline{Y}$ 按固定比例 $s$ 储蓄，剩余用于消费。注意这里还没有证明收入等于产出 $\overline{Y}=Y$
+索罗模型没有管消费者偏好，只是假设收入 $\bar{Y}$ 按固定比例 $s$ 储蓄，剩余用于消费。注意这里还没有证明收入等于产出 $\bar{Y}=Y$
 $$
-\overline{Y}=C+S=(1-s)\overline{Y}+s\overline{Y}
+\bar{Y}=C+S=(1-s)\bar{Y}+s\bar{Y}
 $$
 
 
@@ -170,7 +170,7 @@ $$
 w=\frac{\partial F}{\partial L}\\
 r=\frac{\partial F}{\partial K}
 $$
-这里可以证明收入 $\overline{Y}$ 等于产出 $Y$，因为收入 $\overline{Y}=wL+rK$，又因 $F$ 一次齐次规模收益不变，从而由欧拉法则有 $F=\dfrac{\partial F}{\partial L}L+\dfrac{\partial F}{\partial K}K$，即可得 $\overline{Y}=Y$
+这里可以证明收入 $\bar{Y}$ 等于产出 $Y$，因为收入 $\bar{Y}=wL+rK$，又因 $F$ 一次齐次规模收益不变，从而由欧拉法则有 $F=\dfrac{\partial F}{\partial L}L+\dfrac{\partial F}{\partial K}K$，即可得 $\bar{Y}=Y$
 
 
 
@@ -189,7 +189,7 @@ $$
 
 总投资=总储蓄。而且假设用于投资的每单位产出可以获得一单位的新资本，而现有资本则按照折旧率 $\delta$ 进行折旧
 $$
-S=s\overline{Y}\equiv I=\frac{dK}{dt}+\delta K
+S=s\bar{Y}\equiv I=\frac{dK}{dt}+\delta K
 $$
 
 
@@ -212,8 +212,8 @@ $$
 
 联立资本积累方程和收入等于产出
 $$
-\frac{dK}{dt}=s\overline{Y}-\delta K\\
-\overline{Y}=Y\\
+\frac{dK}{dt}=s\bar{Y}-\delta K\\
+\bar{Y}=Y\\
 \Rightarrow\frac{dK}{dt}=sY-\delta K\\
 $$
 关注有效劳均资本（由于经济总量会随时间不断增长）
@@ -829,7 +829,7 @@ $\theta\neq 1$ 时的情况更为复杂，可能会出现多个不同的均衡�
 
 ### 假设
 
-技术研发不能放到完全竞争市场中，肯定要在垄断竞争、寡头、垄断中选一个。从而原来的新古典生产函数扩大为三个变量，也就不再是规模报酬不变的了。不能再套用完全竞争中的分配 $\overline{Y}=Y=rK+wL$，那样就没有分配能留给技术研发 $A$ 了
+技术研发不能放到完全竞争市场中，肯定要在垄断竞争、寡头、垄断中选一个。从而原来的新古典生产函数扩大为三个变量，也就不再是规模报酬不变的了。不能再套用完全竞争中的分配 $\bar{Y}=Y=rK+wL$，那样就没有分配能留给技术研发 $A$ 了
 
 **基本假设从 Ramsey Model 开始**
 
@@ -1147,7 +1147,7 @@ $\dfrac{dg_A}{dt}=\gamma ng_A+(\theta -1)g_A^2$，令其等于零，就可以讨
 
 ### 永久收入假说
 
-弗里德曼、莫迪利亚尼，与凯恩斯的绝对收入假说认为消费只取决于当期收入 $C=\overline{C}+cY_D$，很不一样
+弗里德曼、莫迪利亚尼，与凯恩斯的绝对收入假说认为消费只取决于当期收入 $C=\bar{C}+cY_D$，很不一样
 
 凯恩斯对消费的见解有三点：
 
@@ -1399,7 +1399,7 @@ $$
 
 延续效率工资。观点是厂商监督能力有限，以效率工资激励员工不偷懒
 
-假定有数量为 $\overline{L}$ 的大量工人和数量为 $N$ 的大量厂商
+假定有数量为 $\bar{L}$ 的大量工人和数量为 $N$ 的大量厂商
 
 
 
@@ -1422,7 +1422,7 @@ $$
 - 就业并且不努力工作，用 S 表示
 - 失业，用 U 表示
 
-并且努力程度只有两个水平可选：$e=0$ 或者 $e=\overline{e}$
+并且努力程度只有两个水平可选：$e=0$ 或者 $e=\bar{e}$
 
 关于状态转移的假设：
 
@@ -1442,17 +1442,17 @@ $$
 
 考虑一个在时刻 0 就业并且努力工作的人
 $$
-V_E(\Delta t)=\int_{t=0}^{\Delta t}e^{-bt}e^{-\rho t}(w-\overline{e})dt+e^{-\rho\Delta t}[e^{-b\Delta t}V_E(\Delta t)+(1-e^{-b\Delta t})V_U(\Delta t)]
+V_E(\Delta t)=\int_{t=0}^{\Delta t}e^{-bt}e^{-\rho t}(w-\bar{e})dt+e^{-\rho\Delta t}[e^{-b\Delta t}V_E(\Delta t)+(1-e^{-b\Delta t})V_U(\Delta t)]
 $$
 等号右边第一项是 $[0,\Delta t]$ 区间内的效用流折现，第二项是 $\Delta t$ 之后的效用：就业的概率是 $e^{-b\Delta t}$，失业的概率是 $1-e^{-b\Delta t}$。而且只考虑稳态，如果最开始时努力工作是工人的最优选择，那么之后仍然是最优选择，不会试图偷懒。
 
 解上面的方程，并且令 $\Delta t$ 趋向于零，可以得出 $V_{i}(\Delta t)=V_{i}$
 $$
-V_E=\dfrac{1}{\rho+b}[(w-\overline{e})+bV_U]
+V_E=\dfrac{1}{\rho+b}[(w-\bar{e})+bV_U]
 $$
 也可以用**资产定价理解**，一种资产在工人就业时的期望收益率为 $\rho$。单位时间的总损益就是单位时间内的红利加上单位时间内的期望资本损益
 $$
-\rho V_E=(w-\overline{e})-b(V_E-V_U)
+\rho V_E=(w-\bar{e})-b(V_E-V_U)
 $$
 整理一下就是和再上面一条式子一样的
 
@@ -1465,7 +1465,7 @@ $$
 
 **厂商行为**
 $$
-\pi(t)=F(\overline{e}L(t))-w(t)[L(t)+S(t)],\quad F'(\cdot)>0,\quad F''(\cdot)<0
+\pi(t)=F(\bar{e}L(t))-w(t)[L(t)+S(t)],\quad F'(\cdot)>0,\quad F''(\cdot)<0
 $$
 其中：
 
@@ -1478,33 +1478,33 @@ $$
 
 **不偷懒条件**
 
-需要让工人的 $V_E\geq V_S$，而且因为努力程度除了 0 只有 $\overline{e}$，所以厂商不必付太高的工资，只要使得 $V_E=V_S$
+需要让工人的 $V_E\geq V_S$，而且因为努力程度除了 0 只有 $\bar{e}$，所以厂商不必付太高的工资，只要使得 $V_E=V_S$
 
-从而可以得到 $V_E-V_U=\dfrac{\overline{e}}{q}$。认真工作的溢价对努力程度成正比，对厂商检查能力成反比
+从而可以得到 $V_E-V_U=\dfrac{\bar{e}}{q}$。认真工作的溢价对努力程度成正比，对厂商检查能力成反比
 
 同样可以得到均衡工资水平
 $$
-w=\overline{e}+(a+b+\rho)\dfrac{\overline{e}}{q}
+w=\bar{e}+(a+b+\rho)\dfrac{\bar{e}}{q}
 $$
 继续替换 $a$，由单位时间内失业的人数等于新找到工作的人数这一均衡条件
 $$
-a=\dfrac{NLb}{\overline{L}-NL}
+a=\dfrac{NLb}{\bar{L}-NL}
 $$
 从而最终不偷懒条件为
 $$
-w=\overline{e}+(\dfrac{\overline{L}}{\overline{L}-NL}b+\rho)\dfrac{\overline{e}}{q}
+w=\bar{e}+(\dfrac{\bar{L}}{\bar{L}-NL}b+\rho)\dfrac{\bar{e}}{q}
 $$
 
 
 **均衡**
 
-因为当工资 $w<\overline{e}$ 时工人效用为负，肯定不会工作。所以在 (NL, w) 坐标系中劳动供给是一条 $w=\overline{e}$ 与 $L=\overline{L}$ 构成的反 L 型曲线
+因为当工资 $w<\bar{e}$ 时工人效用为负，肯定不会工作。所以在 (NL, w) 坐标系中劳动供给是一条 $w=\bar{e}$ 与 $L=\bar{L}$ 构成的反 L 型曲线
 
 如果厂商可以完全监督员工：
 
-- 没有人偷懒，那么厂商利润函数变为 $\pi(t)=F(\overline{e}L(t))-w(t)L(t)$。即 $S(t)=0$
+- 没有人偷懒，那么厂商利润函数变为 $\pi(t)=F(\bar{e}L(t))-w(t)L(t)$。即 $S(t)=0$
 
-- 只有一阶条件 $\overline{e}F'(\overline{e}L)=w$，当 $w=\overline{e}$ 时考虑典型厂商则有 $F'(\overline{e}\overline{L}/N)=1$。但假设有 $F'(\overline{e}\overline{L}/N)>1$，此假设意味着厂商劳动需求与上面的反 L 型劳动供给曲线相较于 L 型角点上方，如果不是劳动供给有上限，在完全监督能力的支持下厂商愿意雇佣更多的劳动
+- 只有一阶条件 $\bar{e}F'(\bar{e}L)=w$，当 $w=\bar{e}$ 时考虑典型厂商则有 $F'(\bar{e}\bar{L}/N)=1$。但假设有 $F'(\bar{e}\bar{L}/N)>1$，此假设意味着厂商劳动需求与上面的反 L 型劳动供给曲线相较于 L 型角点上方，如果不是劳动供给有上限，在完全监督能力的支持下厂商愿意雇佣更多的劳动
 
 如果厂商没有完全监督能力：
 
