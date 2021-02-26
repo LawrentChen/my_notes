@@ -4,7 +4,7 @@
 
 ## 数学回顾
 
-1. 形如 $\boldsymbol{x}^T[Var(\boldsymbol{x})]^{-1}\boldsymbol{x}$ 的二次型：直观含义是以 $[Var(\boldsymbol{x})]^{-1}$ 为权重，将 $\boldsymbol{x}$ 到零向量 $\boldsymbol{0}$ (原点)的距离标准化。一维情形下，化为 $(\frac{x}{\sqrt{Var(x)}})^2$，即 $x$ 离原点有多少个标准差距离（马氏距离）的平方。
+1. 形如 $\mathbf{x}^T[Var(\mathbf{x})]^{-1}\mathbf{x}$ 的二次型：直观含义是以 $[Var(\mathbf{x})]^{-1}$ 为权重，将 $\mathbf{x}$ 到零向量 $\mathbf{0}$ (原点)的距离标准化。一维情形下，化为 $(\frac{x}{\sqrt{Var(x)}})^2$，即 $x$ 离原点有多少个标准差距离（马氏距离）的平方。
 
 2. 夹心估计量，$Var(AX)=AVar(X)A^T$。其中 $A$ 为对称矩阵
 
@@ -37,13 +37,13 @@
 
    2. 多维矩阵表达
       $$
-      f(x_1,\cdots,x_n)=\frac{1}{(2\pi)^{n/2}|\boldsymbol{\Sigma}|^{1/2}}exp\{=-\frac{1}{2}(X-\boldsymbol{\mu})^T\Sigma^{-1}(X-\boldsymbol{\mu})\}\\
+      f(x_1,\cdots,x_n)=\frac{1}{(2\pi)^{n/2}|\mathbf{\Sigma}|^{1/2}}exp\{-\frac{1}{2}(X-\mathbf{\mu})^T\Sigma^{-1}(X-\mathbf{\mu})\}\\
       其中，\Sigma=
       \begin{pmatrix}
       \sigma_1^2&\rho\sigma_1\sigma_2\\ 
       \rho\sigma_2\sigma_1&\sigma_2^2
       \end{pmatrix}\\
-      |\Sigma|=(1-\rho)^2\sigma^2_1\sigma^2_2\\
+      |\Sigma|=(1-\rho^2)\sigma^2_1\sigma^2_2\\
       \Sigma^{-1}=
       \begin{pmatrix}
       \frac{1}{(1-\rho^2)\sigma_1^2}&-\frac{\rho}{(1-\rho^2)\sigma_1\sigma_2}\\ 
@@ -56,20 +56,20 @@
 
 ## 小样本OLS
 
-整体模型，线性假定 $\mathbf{y}=X\boldsymbol{\beta}+\boldsymbol{\epsilon}$，注意矩阵 $X$ 的第一列元素 $x_{i1}=1$，原因是常数项
+整体模型，线性假定 $\mathbf{y}=X\mathbf{\beta}+\mathbf{\epsilon}$，注意矩阵 $X$ 的第一列元素 $x_{i1}=1$，原因是常数项
 
-最小化残差平方和，注意 $\boldsymbol\epsilon$ 为误差，$\boldsymbol{e}$ 为残差
+最小化残差平方和，注意 $\mathbf\epsilon$ 为误差，$\mathbf{e}$ 为残差
 
 $$
 \begin{align}
-\min\limits_{\tilde{\boldsymbol{\beta}}} SSR(\tilde{\boldsymbol{\beta}})&=\sum^n_{i=1}e^2_i=\boldsymbol{e}^T\boldsymbol{e}\\
-&=(\boldsymbol{y}-X\boldsymbol{\tilde{\beta}})^T(\boldsymbol{y}-X\boldsymbol{\tilde{\beta}})\\
-&=\boldsymbol{y}^T\boldsymbol{y}-\boldsymbol{y}^TX\boldsymbol{\tilde{\beta}}-\boldsymbol{\tilde{\beta}}X^T\boldsymbol{y}+\boldsymbol{\tilde{\beta}}^TX^TX\boldsymbol{\tilde{\beta}}\\
-&=\boldsymbol{y}^T\boldsymbol{y}-2\boldsymbol{y}^TX\boldsymbol{\tilde{\beta}}+\boldsymbol{\tilde{\beta}}^TX^TX\boldsymbol{\tilde{\beta}}
+\min\limits_{\tilde{\mathbf{\beta}}} SSR(\tilde{\mathbf{\beta}})&=\sum^n_{i=1}e^2_i=\mathbf{e}^T\mathbf{e}\\
+&=(\mathbf{y}-X\mathbf{\tilde{\beta}})^T(\mathbf{y}-X\mathbf{\tilde{\beta}})\\
+&=\mathbf{y}^T\mathbf{y}-\mathbf{y}^TX\mathbf{\tilde{\beta}}-\mathbf{\tilde{\beta}}X^T\mathbf{y}+\mathbf{\tilde{\beta}}^TX^TX\mathbf{\tilde{\beta}}\\
+&=\mathbf{y}^T\mathbf{y}-2\mathbf{y}^TX\mathbf{\tilde{\beta}}+\mathbf{\tilde{\beta}}^TX^TX\mathbf{\tilde{\beta}}
 \end{align}\\
 $$
 
-其中，$\mathbf{y}$ 为 $n*1$ 向量，$X$ 为 $n*K$ 矩阵，$\boldsymbol{\beta}$ 为 $K*1$ 向量
+其中，$\mathbf{y}$ 为 $n*1$ 向量，$X$ 为 $n*K$ 矩阵，$\mathbf{\beta}$ 为 $K*1$ 向量
 可以看到各项均为内积形式的 $1*1$ 常数
 
 ### 一些基本矩阵微分规则
@@ -77,27 +77,27 @@ $$
 这里都是按列向量求导的梯度微分 $\nabla$
 $$
 内积微分，
-\frac{\partial(\boldsymbol\alpha^T\boldsymbol\beta)}{\partial{\boldsymbol{\beta}}}=\boldsymbol\alpha\\
+\frac{\partial(\mathbf\alpha^T\mathbf\beta)}{\partial{\mathbf{\beta}}}=\mathbf\alpha\\
 
 二次型微分，
-\frac{\partial(\boldsymbol\beta^TA\boldsymbol\beta)}{\partial{\boldsymbol\beta}}=2A\boldsymbol\beta，其中A为对称矩阵
+\frac{\partial(\mathbf\beta^TA\mathbf\beta)}{\partial{\mathbf\beta}}=2A\mathbf\beta，其中A为对称矩阵
 $$
 
 使用上面的微分规则，对残差平方和目标函数求一阶导
 $$
-\frac{\partial(SSR)}{\partial\tilde{\boldsymbol{\beta}}}=-2X^T\boldsymbol{y}+2X^TX\tilde{\boldsymbol\beta}=0\\
+\frac{\partial(SSR)}{\partial\tilde{\mathbf{\beta}}}=-2X^T\mathbf{y}+2X^TX\tilde{\mathbf\beta}=0\\
 $$
 
 从而有正规方程组：
 $$
-(X^TX)_{K*K}{\tilde{\boldsymbol{\beta}}}_{K*1}=X^T_{K*n}\boldsymbol{y}_{n*1}\\
+(X^TX)_{K*K}{\tilde{\mathbf{\beta}}}_{K*1}=X^T_{K*n}\mathbf{y}_{n*1}\\
 $$
 
 
 $$
-移项有X^T\boldsymbol{y}-(X^TX){\tilde{\boldsymbol{\beta}}}=\boldsymbol{0}\\
-提公因式，X^T(\boldsymbol{y}-X{\tilde{\boldsymbol{\beta}}})=\boldsymbol{0}\\
-亦即X^T\boldsymbol{e}=\boldsymbol{0}，残差和解释变量正交\\
+移项有X^T\mathbf{y}-(X^TX){\tilde{\mathbf{\beta}}}=\mathbf{0}\\
+提公因式，X^T(\mathbf{y}-X{\tilde{\mathbf{\beta}}})=\mathbf{0}\\
+亦即X^T\mathbf{e}=\mathbf{0}，残差和解释变量正交\\
 $$
 
 因 $x_{i1}=1$, 转置后 $X^T$ 第一行元素全为 1，从而上式也意味着 $\sum_{i=1}^{n}e_i=0$
@@ -106,22 +106,32 @@ $$
 
 
 $$
-{\tilde{\boldsymbol{\beta}}}=(X^TX)^{-1}X^T\boldsymbol{y}\\
-\hat{\boldsymbol{y}}=X{\tilde{\boldsymbol{\beta}}}=X(X^TX)^{-1}X^T\boldsymbol{y}=\boldsymbol{P}\boldsymbol{y}
+{\tilde{\mathbf{\beta}}}=(X^TX)^{-1}X^T\mathbf{y}\\
+\hat{\mathbf{y}}=X{\tilde{\mathbf{\beta}}}=X(X^TX)^{-1}X^T\mathbf{y}=\mathbf{P}\mathbf{y}
 $$
 
-其中 $\boldsymbol{P}=X(X^TX)^{-1}X^T$ 称为投影矩阵，用 $\boldsymbol{P}$ 左乘任何向量就得该向量在超平面X上的投影
-另一方面 $\boldsymbol{e}=\boldsymbol{y}-\boldsymbol{\hat{y}}=\boldsymbol{y}-\boldsymbol{P}\boldsymbol{y}=(\boldsymbol{I}_n-\boldsymbol{P})\boldsymbol{y}=\boldsymbol{M}\boldsymbol{y}$
-其中 $\boldsymbol{M}=\boldsymbol{I}_n-\boldsymbol{P}$ 为消灭矩阵，左乘任何向量就是该向量对超平面X投影后的残差向量
+其中 $\mathbf{P}=X(X^TX)^{-1}X^T$ 称为投影矩阵，用 $\mathbf{P}$ 左乘任何向量就得该向量在超平面 $X$ 上的投影
+另一方面 $\mathbf{e}=\mathbf{y}-\mathbf{\hat{y}}=\mathbf{y}-\mathbf{P}\mathbf{y}=(\mathbf{I}_n-\mathbf{P})\mathbf{y}=\mathbf{M}\mathbf{y}$
+其中 $\mathbf{M}=\mathbf{I}_n-\mathbf{P}$ 为消灭矩阵，用它左乘任何向量就是该向量对超平面 $X$ 投影后的残差向量
 
 
 
 ### 平方和分解公式
 
-- 离差平方和 Total Sum of Squares (TSS)
-- Explained Sum of Squares (ESS)
-- 残差平方和 Residual Sum of Squares (RSS)
+离差平方和 Total Sum of Squares (TSS)
+$$
+\sum_{i=1}^{n}(y_i-\bar{y})^2
+$$
+Explained Sum of Squares (ESS)
+$$
+\sum_{i=1}^{n}(\hat{y}-\bar{y})^2
+$$
 
+残差平方和 Residual Sum of Squares (RSS)
+$$
+\sum_{i=1}^ne_i^2
+$$
+分解有
 $$
 TSS=ESS+RSS
 $$
@@ -135,24 +145,61 @@ $$
 
 
 
+**校正拟合优度**
+$$
+\bar{R^2}=1-\dfrac{\sum_{i=1}^{n}e_i^2/(n-K)}{\sum_{i=1}^{n}(y_i-\bar{y})^2/(n-1)}
+$$
+通过自由度来惩罚模型复杂度
+
+
+
 
 ### 古典线性回归模型关键假定
 
 1. 线性假定，真实DGP线性于参数
 2. 严外生性 $E(\varepsilon_i|X)=0$，即扰动项和所有解释变量均不相关，$Cov(\varepsilon_i,x_{jk})=0，\forall j,k$。用期望迭代即可有 $E(\varepsilon_i)=0$
 3. 不存在严格多重共线性，亦即 $X$ 满列秩。进而 $X^TX$ 正定、可逆，因为 $r(X^TX)=r(X)$，对称且满秩（这里 $X$ 不一定是方阵，所以谈不上 $X$ 可逆，实际上不能直接用分解证明其正定）。此性质是回归能够算得出来的必要条件
-4. 球形扰动：同方差、无自相关，亦即 $Var(\boldsymbol{\varepsilon}|X)=\sigma^2\boldsymbol{I}_n$
-5. 扰动正态：$\boldsymbol{\varepsilon}|X\sim N(\boldsymbol{0},\sigma^2\boldsymbol{I}_n)$
+4. 球形扰动：同方差、无自相关，亦即 $Var(\mathbf{\varepsilon}|X)=\sigma^2\mathbf{I}_n$
+5. 扰动正态：$\mathbf{\varepsilon}|X\sim N(\mathbf{0},\sigma^2\mathbf{I}_n)$
+
+
+
+可以这样理解这些古典假定：手上有了 $\mathbf{y}$ 和 $X$，希望把它们投到超平面上 $\hat{\mathbf{y}}=X\hat{\beta}+\mathbf{e}$
+
+首先要让这个超平面存在，不只是像 SVM 那样插入一块作为分隔。所以要有线性假定，真实 DGP 线性于参数，然后希望有如下的合意性质。
 
 
 
 ### 合意性质
 
-1. 线性性，$\boldsymbol{\hat{\beta}}$ 可以视为 $\boldsymbol{y}$ 的线性组合。由线性假定所得
+1. 线性性，$\mathbf{\hat{\beta}}$ 可以视为 $\mathbf{y}$ 的线性组合。由线性假定所得
 2. 无偏性。由严外生性所得
-3. 协方差矩阵形式简洁，$Var(\boldsymbol{\hat{\beta}}|X)=(X^TX)^{-1}X^TVar(\boldsymbol{\varepsilon}|X)X(X^TX)^{-1}=\sigma^2(X^TX)^{-1}$。由球形扰动所得
+3. 协方差矩阵形式简洁，$Var(\mathbf{\hat{\beta}}|X)=(X^TX)^{-1}X^TVar(\mathbf{\varepsilon}|X)X(X^TX)^{-1}=\sigma^2(X^TX)^{-1}$。由球形扰动所得
 4. BLUE中的方差最小。同样有球形扰动所得
 5. 假设检验和统计推断。由扰动正态支持
+
+
+
+## 假设检验/分类标准的术语
+
+|        |        |        | 标准集 |           |
+| :----: | :----: | :----: | :----: | :-------: |
+|        |        | 正样本 | 负样本 |   合计    |
+|        | 正样本 |  $TP$  |  $FP$  |    $P$    |
+| 测试集 | 负样本 |  $FN$  |  $TN$  |    $N$    |
+|        |  合计  |  $T$   |  $F$   | $P+N=T+F$ |
+
+1. Precision 查准率 = $TP/P$
+2. Recall 召回率（真阳性率/敏感性） = $TP/T$
+3. 假阳性率/特异性 = $FP/F$
+4. Accuracy 准确率 = $(TP+TN)/(T+F)$
+5. F 分数 = $\dfrac{2}{\dfrac{1}{Reacll}+\dfrac{1}{Precision}}$，即查准率和召回率的调和平均数
+6. ROC Curve：假阳性率为横轴，真阳性率为纵轴
+7. PR Curve：Recall 为横轴，Precision 为纵轴
+8. 显著性水平 = $FN/T$ = $\alpha$
+9. Power 检验的势 = $TN/F$ = $1-\dfrac{FP}{F}$ = $1-\beta$
+
+
 
 
 
@@ -164,11 +211,11 @@ $$
 
 ### 随机收敛
 
-依均方收敛 $\Rightarrow$ 依概率收敛 $\Rightarrow$ 依分布收敛
+依均方收敛 $\overset{chebyshov 不等式}{\Rightarrow}$ 依概率收敛 $\Rightarrow$ 依分布收敛
 
-Khinchin 大数定律
+Khinchin 大数定律，由依均方收敛推出的依概率收敛
 
-Levy-Lindberg 中心极限定理
+Levy-Lindberg 中心极限定理，依分布收敛
 
 
 
@@ -178,13 +225,28 @@ Levy-Lindberg 中心极限定理
 
 **弱平稳**：相比严平稳不要求同分布，只要求到二阶矩（期望、方差、协方差）相同即可
 
-**渐进独立性/遍历性/弱相依/各态历经性**：允许存在序列相关，只要这种相关关系在极限处消失即可。只要相距够远，就可以视为近似独立。主要用来代替独立的要求
+**渐进独立性/遍历性/弱相依/各态历经性**：允许存在序列相关，只要这种相关关系在极限处消失即可。只要相距够远，就可以视为近似独立（严格来说是不相关）。主要用来代替独立的要求
 
 
 
-### 渐进独立定理
+### 渐近独立定理
 
-渐近独立的严平稳过程的样本均值是总体均值的一致估计。推广了大数定律，放松了约束条件。配合连续函数变换，也就推广了矩法估计，只要是渐近独立严平稳，样本矩都是总体矩的一致估计
+渐近独立的严平稳过程的样本均值是总体均值的一致估计。
+
+配合连续函数变换，也就推广了矩法估计。**只要是渐近独立严平稳，样本矩都是总体矩的一致估计**
+
+仅要求：
+
+- 严平稳
+- 渐近独立
+
+也就是说解除了独立的要求，但还是要求同分布
+
+推广了：
+
+- 大数定律
+- 中心极限定理
+- 矩估计法
 
 
 
@@ -206,6 +268,27 @@ Levy-Lindberg 中心极限定理
 1. 一致性，由前定解释变量（同期外生）所得
 2. 渐近正态性，由渐近独立严平稳所得
 3. 统计推断使用标准正态分布代替 $t$ 分布，$\chi^2$ 分布代替 $F$ 分布，由渐进正态推得
+
+
+
+## 时间序列典例
+
+### AR（1）
+
+$$
+y_t=\rho y_{t-1}+\varepsilon_t
+$$
+
+其中 $\{\varepsilon_t\}$ 为 i.i.d，且 $cov(y_{t-1},\varepsilon_t)=0$
+
+- 当 $\rho=1$ 时， $\{y_t\}$ 不平稳，随机游走
+- 当 $\rho\lt 1$ 时，$\{y_t\}$ 严平稳
+
+
+
+### 白噪音
+
+对于弱平稳过程 $\{x_t\}$ ，如果对 $\forall t$ 都有 $E(x_t)=0$ 且 $cov(x_t,x_{t+k})=0,(\forall k\neq 0)$ 则为白噪音。直观即每一期期望都保持为零，不同期序列不相关，且各期直到二阶矩都保持相同（当然也就有方差不变 $var(x_t)=\sigma^2$）
 
 
 
@@ -273,7 +356,7 @@ Levy-Lindberg 中心极限定理
 
 1. 奥卡姆剃刀原则
 2. 可用的权衡准则
-   1. 校正可决系数 $\overline{R}^2$
+   1. 校正可决系数 $\bar{R}^2$
    2. 赤池（Akaike）信息准则
    3. 贝叶斯信息准则
    4. 从大到小的序贯t规则
@@ -384,3 +467,85 @@ Levy-Lindberg 中心极限定理
 
 1. 
 
+
+
+## 具体的统计量
+
+直观上，如果未知参数的估计值离预期假想值比较“远”，则应倾向于拒绝原假设（$H_0$：未知参数等于预期假想值）。使用此原理的这类统计检验成为沃尔德检验（Wald test）
+
+
+
+### t 统计量
+
+#### 小样本
+
+满足全部五个小样本 OLS 古典假定，并且原假设 $H_0:\beta_k=c$ 也成立的情况下
+$$
+t_k=\dfrac{\hat{\beta_k}-c}{SE(\hat{\beta_k})}\sim t(n-K)
+$$
+一般的通用公式为
+$$
+t\equiv \dfrac{估计量-假想值}{估计量的标准误}
+$$
+
+
+
+#### 大样本
+
+$$
+t_k=\dfrac{\hat{\beta_k}-c}{SE_1(\hat{\beta_k})}\overset{d}{\to} N(0,1)
+$$
+
+其中 $SE_1(\hat{\beta_k})=\sqrt{\dfrac{1}{n}\hat{Avar(\hat{\beta_k})}}$
+
+服从正态分布而不再是 t 分布
+
+
+
+### F 统计量
+
+#### 小样本
+
+原假设为检验多个线性约束条件，矩阵表示为 $H_0=\mathbf{R}_{m*K}\mathbf{\beta}_{K*1}=\mathbf{r}_{m*1}$；其中 $\mathbf{R}$ 要满行秩，也就是 $rank(\mathbf{R})=m$ ，待检验线性约束条件不能有多余或者自相矛盾
+
+根据 Wald test 原理，由于 $\hat{\mathbf{\beta}}$ 是 $\mathbf{\beta}$ 的估计量，故如果 $H_0$ 成立，那么 $\mathbf{R}\hat{\mathbf{\beta}}-\mathbf{r}$ 应该比较接近 $\mathbf{0}$。这种接近程度用其二次型来衡量，比如说
+$$
+(\mathbf{R\hat{\beta}-r})^T[Var((\mathbf{R\hat{\beta}-r}))]^{-1}(\mathbf{R\hat{\beta}-r})
+$$
+
+
+其中，
+$$
+\begin{align}
+Var(\mathbf{R}\hat{\mathbf{\beta}}-\mathbf{r})&=Var(\mathbf{R}\hat{\mathbf{\beta}})\\
+&=\mathbf{R}Var(\hat{\mathbf{\beta}})\mathbf{R}^T&（夹心估计量）\\
+&=\sigma^2\mathbf{R}(\mathbf{X^TX})^{-1}\mathbf{R}^T&（因为Var(\hat{\mathbf{\beta}})=\sigma^2(\mathbf{X^TX})^{-1}）
+\end{align}
+$$
+从而在满足全部五个小样本 OLS 古典假定，并且原假设 $H_0=\mathbf{R\beta}=\mathbf{r}$ 的情况下，有
+$$
+F\equiv\dfrac{(\mathbf{R\hat{\beta}-r})^T[\mathbf{R}(\mathbf{X^TX})^{-1}\mathbf{R}^T]^{-1}(\mathbf{R\hat{\beta}-r})/m}{s^2}\sim F(m,n-K)
+$$
+另外，**在做假设检验时，如果接受原假设，则可将原假设作为约束条件，代入最小二乘法的最优化问题。**
+
+从而 $F$ 检验可以变为
+$$
+\mathop{min}_\hat{\mathbf{\beta}}\ SSR(\mathbf{\hat{\beta}})\\
+s.t.\ \mathbf{R\hat{\beta}}=\mathbf{r}
+$$
+如果原假设 $H_0:\mathbf{R\beta}=\mathbf{r}$ 正确，那么加上约束后不应使得残差平方和增大很多
+
+记无约束回归的残差平方和为 $SSR_0$，而有约束回归的残差平方和为 $SSR_1$。这意味着，在 $H_0$ 正确的情况下，$(SSR_0-SSR_1)$ 不应很大。从而构造如下的 F 统计量
+$$
+\begin{align}
+F&=\dfrac{(SSR_1-SSR_0)/m}{SSR_0/(n-K)}\\
+&=\dfrac{(R_0^2-R_1^2)/m}{(1-R_0^2)/(n-K)}
+\end{align}
+$$
+其中用了 $R^2=\dfrac{ESS}{TSS}=1-\dfrac{RSS}{TSS}$ 来替换，注意第二个等号后的 $R^2$ 都加了负号
+
+
+
+#### 大样本
+
+假设统计量 $F\sim F(m,n)$，则当 $n\to \infty$ 时，$mF\overset{d}{\to}\chi^2(m)$
